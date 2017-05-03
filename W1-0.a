@@ -1,0 +1,23 @@
+; This program reads in integers and adds them together
+; until a negative number is read in.  Then it outputs
+; the sum (not including the last number).
+
+Start:  read    	; read n -> acc
+        store input
+Check:  load input
+        and one
+        xor counter
+        store counter
+        jump Shift
+Shift:  shlr input
+        jmpz Done
+        jump Check
+Done:	load counter
+        write
+        stop  		; stop
+
+input:  .data 4 0
+one:    .data 4 1
+counter:.data 4 0
+
+
